@@ -1,0 +1,21 @@
+# Personal reference material
+private/
+
+# Logs
+*.log
+
+# Backup files
+*.bak
+*.tmp
+*.swp
+
+# Python
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
