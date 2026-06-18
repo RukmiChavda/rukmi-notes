@@ -4,7 +4,7 @@ A collection of notes, tutorials, scripts, and learning resources related to VLS
 
 ## Website
 
-https://rukmichavda.github.io/rukmi-note/
+https://rukmichavda.github.io/rukmi-notes/
 
 ## Topics
 
