@@ -1,3 +1,6 @@
 site_name: Rukmi's VLSI Notes
 theme:
   name: material
+  
+   - Inputs:
+      - Technology Files: inputs/tech.md
