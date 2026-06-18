@@ -1,6 +1,13 @@
 site_name: Rukmi's VLSI Notes
+
 theme:
   name: material
-  
-   - Inputs:
+
+nav:
+  - Home: index.md
+
+  - Inputs:
       - Technology Files: inputs/tech.md
+
+  - Physical Design:
+      - Liberty File: physical-design/liberty-file.md
