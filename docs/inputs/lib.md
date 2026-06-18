@@ -24,6 +24,28 @@ Tools such as Fusion Compiler, PrimeTime, Design Compiler, OpenROAD, and Yosys u
 
 ---
 
+<table>
+<tr>
+<td align="center">
+<img src="../images/liberty/inv_scm.png" width="250">
+<br>
+Figure 1: Liberty File Structure
+</td>
+
+<td align="center">
+<img src="../images/liberty/inv_dia.png" width="250">
+<br>
+Figure 2: Timing Arc
+</td>
+
+<td align="center">
+<img src="../images/liberty/inv_lay.png" width="250">
+<br>
+Figure 3: Delay Lookup Table
+</td>
+</tr>
+</table>
+
 ## Liberty File in ASIC Flow
 
 ```text
