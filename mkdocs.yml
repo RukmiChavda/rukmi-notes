@@ -7,7 +7,4 @@ nav:
   - Home: index.md
 
   - Inputs:
-      - Technology Files: inputs/tech.md
-
-  - Physical Design:
-      - Liberty File: physical-design/liberty-file.md
+      - Technology Files: inputs/lib.md

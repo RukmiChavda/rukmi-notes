@@ -1,0 +1,946 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Liberty File (.lib) - Rukmi's VLSI Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#liberty-file-lib" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Rukmi&#39;s VLSI Notes" class="md-header__button md-logo" aria-label="Rukmi's VLSI Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Rukmi's VLSI Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Liberty File (.lib)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Rukmi&#39;s VLSI Notes" class="md-nav__button md-logo" aria-label="Rukmi's VLSI Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Rukmi's VLSI Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inputs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Inputs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tech.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technology Files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physical Design
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Physical Design
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../physical-design/liberty-file.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Liberty File
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-liberty-files-are-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Liberty Files Are Important
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#liberty-file-in-asic-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Liberty File in ASIC Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-library-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Library Attributes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Library Attributes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technology-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technology Information
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operating-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operating Conditions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cell-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cell Definition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timing-arcs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timing Arcs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delay-modeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delay Modeling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#power-modeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Power Modeling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-standard-cells" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Standard Cells
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#library-corners" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Library Corners
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-sections-in-a-liberty-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important Sections in a Liberty File
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Important Sections in a Liberty File">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#library" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Library
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cell
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal-power" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal Power
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-in-design-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage in Design Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="liberty-file-lib">Liberty File (.lib)</h1>
+<h2 id="introduction">Introduction</h2>
+<p>A Liberty (<code>.lib</code>) file is a standard cell library description used by synthesis, timing analysis, and physical design tools. It contains timing, power, area, and functional information for each cell in a technology library.</p>
+<p>Liberty files are developed by the foundry or library vendor and are one of the primary inputs to digital implementation flows.</p>
+<hr />
+<h2 id="why-liberty-files-are-important">Why Liberty Files Are Important</h2>
+<p>Liberty files provide:</p>
+<ul>
+<li>Cell functionality</li>
+<li>Timing information</li>
+<li>Power information</li>
+<li>Area information</li>
+<li>Pin characteristics</li>
+<li>Operating conditions</li>
+<li>Constraint definitions</li>
+</ul>
+<p>Tools such as Fusion Compiler, PrimeTime, Design Compiler, OpenROAD, and Yosys use Liberty files during implementation and signoff.</p>
+<hr />
+<h2 id="liberty-file-in-asic-flow">Liberty File in ASIC Flow</h2>
+<pre><code class="language-text">RTL
+ ↓
+Synthesis
+ ↓
+Gate-Level Netlist
+ ↓
+Place &amp; Route
+ ↓
+Static Timing Analysis
+
+      ↑
+   Liberty
+    (.lib)
+</code></pre>
+<h2 id="basic-structure">Basic Structure</h2>
+<p>A Liberty file typically contains:</p>
+<pre><code class="language-text">library
+├── Operating Conditions
+├── Wire Load Models
+├── Cell Definitions
+│   ├── Pins
+│   ├── Timing Arcs
+│   ├── Power Data
+│   └── Area
+└── Constraints
+</code></pre>
+<h2 id="key-library-attributes">Key Library Attributes</h2>
+<h3 id="technology-information">Technology Information</h3>
+<ul>
+<li>Time Unit</li>
+<li>Voltage Unit</li>
+<li>Current Unit</li>
+<li>Capacitance Unit</li>
+<li>Resistance Unit</li>
+</ul>
+<h3 id="operating-conditions">Operating Conditions</h3>
+<p>Example:</p>
+<pre><code class="language-liberty">operating_conditions(TT_0P80V_25C) {
+    process : 1.0;
+    voltage : 0.80;
+    temperature : 25;
+}
+</code></pre>
+<p>Parameters:</p>
+<ul>
+<li>Process</li>
+<li>Voltage</li>
+<li>Temperature</li>
+</ul>
+<h2 id="cell-definition">Cell Definition</h2>
+<p>Example:</p>
+<pre><code class="language-liberty">cell(AND2X1) {
+    area : 1.25;
+
+    pin(A) {
+        direction : input;
+    }
+
+    pin(B) {
+        direction : input;
+    }
+
+    pin(Y) {
+        direction : output;
+    }
+}
+</code></pre>
+<h2 id="timing-arcs">Timing Arcs</h2>
+<p>Timing arcs define delay relationships between input and output pins.</p>
+<p>Example:</p>
+<pre><code class="language-liberty">timing() {
+    related_pin : &quot;A&quot;;
+}
+</code></pre>
+<p>Common timing arc types:</p>
+<ul>
+<li>Combinational</li>
+<li>Rising Edge</li>
+<li>Falling Edge</li>
+<li>Setup</li>
+<li>Hold</li>
+<li>Recovery</li>
+<li>Removal</li>
+</ul>
+<h2 id="delay-modeling">Delay Modeling</h2>
+<p>Delay depends on:</p>
+<ul>
+<li>Input Transition</li>
+<li>Output Load Capacitance</li>
+<li>Process Corner</li>
+<li>Voltage</li>
+<li>Temperature</li>
+</ul>
+<p>Liberty files typically use lookup tables to model delays accurately.</p>
+<h2 id="power-modeling">Power Modeling</h2>
+<p>Power data includes:</p>
+<ul>
+<li>Internal Power</li>
+<li>Switching Power</li>
+<li>Leakage Power</li>
+</ul>
+<p>Example:</p>
+<pre><code class="language-liberty">cell_leakage_power : 0.003;
+</code></pre>
+<h2 id="common-standard-cells">Common Standard Cells</h2>
+<ul>
+<li>Buffer</li>
+<li>Inverter</li>
+<li>NAND</li>
+<li>NOR</li>
+<li>AOI</li>
+<li>OAI</li>
+<li>Multiplexer</li>
+<li>Flip-Flop</li>
+<li>Latch</li>
+<li>Clock Gating Cell</li>
+</ul>
+<h2 id="library-corners">Library Corners</h2>
+<table>
+<thead>
+<tr>
+<th>Corner</th>
+<th>Process</th>
+<th>Voltage</th>
+<th>Temperature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TT</td>
+<td>Typical</td>
+<td>Nominal</td>
+<td>25°C</td>
+</tr>
+<tr>
+<td>SS</td>
+<td>Slow</td>
+<td>Low</td>
+<td>High</td>
+</tr>
+<tr>
+<td>FF</td>
+<td>Fast</td>
+<td>High</td>
+<td>Low</td>
+</tr>
+</tbody>
+</table>
+<h2 id="important-sections-in-a-liberty-file">Important Sections in a Liberty File</h2>
+<h3 id="library">Library</h3>
+<pre><code class="language-liberty">library(my_library) {
+}
+</code></pre>
+<h3 id="cell">Cell</h3>
+<pre><code class="language-liberty">cell(INVX1) {
+}
+</code></pre>
+<h3 id="pin">Pin</h3>
+<pre><code class="language-liberty">pin(A) {
+}
+</code></pre>
+<h3 id="timing">Timing</h3>
+<pre><code class="language-liberty">timing() {
+}
+</code></pre>
+<h3 id="internal-power">Internal Power</h3>
+<pre><code class="language-liberty">internal_power() {
+}
+</code></pre>
+<h2 id="usage-in-design-flow">Usage in Design Flow</h2>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Synthesis</td>
+<td>Cell Mapping</td>
+</tr>
+<tr>
+<td>Placement</td>
+<td>Timing Estimation</td>
+</tr>
+<tr>
+<td>CTS</td>
+<td>Clock Optimization</td>
+</tr>
+<tr>
+<td>Routing</td>
+<td>Timing Updates</td>
+</tr>
+<tr>
+<td>STA</td>
+<td>Signoff Analysis</td>
+</tr>
+<tr>
+<td>Power Analysis</td>
+<td>Dynamic and Leakage Power</td>
+</tr>
+</tbody>
+</table>
+<h2 id="summary">Summary</h2>
+<p>The Liberty file is one of the most important inputs in ASIC implementation. It describes the functionality, timing, power, area, and constraints of standard cells and enables accurate synthesis, physical design, timing analysis, and power analysis throughout the design flow.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
