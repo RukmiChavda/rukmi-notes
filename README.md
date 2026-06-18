@@ -10,9 +10,6 @@ https://rukmichavda.github.io/rukmi-notes/
 
 - Physical Design
 - Static Timing Analysis (STA)
-- Fusion Compiler
-- PrimeTime
-- IC Validator
 - OpenROAD
 - TCL Scripting
 - Python Automation
