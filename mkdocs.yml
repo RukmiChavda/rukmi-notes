@@ -7,4 +7,4 @@ nav:
   - Home: index.md
 
   - Inputs:
-      - Technology Files: inputs/lib.md
+      - Liberty File (.lib): inputs/lib.md
