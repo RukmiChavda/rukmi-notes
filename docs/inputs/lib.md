@@ -24,45 +24,19 @@ Tools such as Fusion Compiler, PrimeTime, Design Compiler, OpenROAD, and Yosys u
 
 ---
 
-<table>
-<tr>
-<td align="center">
-<img src="../images/liberty/inv_scm.png" width="250">
-<br>
-Figure 1: Liberty File Structure
-</td>
-
-<td align="center">
-<img src="../images/liberty/inv_dia.png" width="250">
-<br>
-Figure 2: Timing Arc
-</td>
-
-<td align="center">
-<img src="../images/liberty/inv_lay.png" width="250">
-<br>
-Figure 3: Delay Lookup Table
-</td>
-</tr>
-</table>
-
 ## Liberty File in ASIC Flow
 
-```text
-RTL
- ↓
-Synthesis
- ↓
-Gate-Level Netlist
- ↓
-Place & Route
- ↓
-Static Timing Analysis
-
-      ↑
-   Liberty
-    (.lib)
+```mermaid
+flowchart LR
+    RTL --> Synthesis --> PnR --> CTS --> Signoff
 ```
+
+![CTS tree](./images/liberty/inv_dia.png)
+<figure markdown> <figcaption>Inverter diagram</figcaption> </figure>
+![CTS tree](./images/liberty/inv_scm.png)
+<figure markdown> <figcaption>Inverter shemeatic</figcaption> </figure>
+![CTS tree](./images/liberty/inv_lay.png)
+<figure markdown> <figcaption>Inverter Layout</figcaption> </figure>
 
 ## Basic Structure
 
