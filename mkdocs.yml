@@ -9,15 +9,10 @@ nav:
   - Inputs:
       - Liberty File (.lib): inputs/lib.md
 
-  - VIM:
-    - Why vim?: vim/introduction.md
-    - Installation : vim/installation.md
-    - Basic editing: vim/basic-editing.md
-    - Fast editing: vim/fast-editing.md
-    - Cut/Copy/Paste: vim/cut-copy-paste.md
-    - Multiple files: vim/handling-multiple-files.md
-    - Search and Replace: vim/search-replace.md
-    - Visual mode: vim/visual-mode.md
+  - VIM: vim/vim.md
+  - TCL: tcl/tcl.md
+  - Python: python/python.md
+  - Git: git/git.md 
 
 markdown_extensions:
   - pymdownx.superfences:
