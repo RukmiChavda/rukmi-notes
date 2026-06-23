@@ -13,6 +13,11 @@ nav:
   - TCL: tcl/tcl.md
   - Python: python/python.md
   - Git: git/git.md 
+  - Markdown: markdown/markdown.md
+  - unix: 
+    - Basic: unix/unix-basic.md
+    - Advance: unix/unix-adv.md
+    - AWK/GREP/SED: unix/awk-grep-sed.md
 
 markdown_extensions:
   - pymdownx.superfences:
