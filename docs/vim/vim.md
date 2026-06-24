@@ -2,21 +2,6 @@
 
 ## Introduction
 
-#### Introduction
-
-### History of Vim and GVim
-
-- **Vim (Vi IMproved)** was released by Bram Moolenaar in **1991**, based on the original `vi` editor.
-- `vi` was developed in **1976** by Bill Joy for the Unix operating system.
-- Vim started as a clone named `stevie` on the Amiga computer.
-- Over time, Vim added features like **syntax highlighting**, **macros**, and **scripting**.
-- **GVim** introduced a graphical user interface with menus, mouse support, and better color display.
-- Vim became the default editor in many Unix/Linux distributions and gained wide popularity among developers.
-- Vim is distributed as **charityware**, supporting ICCF Holland (a children's charity in Uganda).
-- In 2015, **Neovim** forked from Vim to modernise the codebase, improve plugin support, and add async features.
-
-### Introduction to Vim and GVim
-
 - **Vim** is a highly efficient, versatile, and powerful text editor.
 - It is **keyboard-centric**, designed for users who prefer minimal keystrokes and maximum control.
 - Vim is a **modal editor**,
@@ -30,57 +15,21 @@
   - Clipboard integration with the desktop environment.
 - Both Vim and GVim share the same powerful engine and are extensively used in programming, system administration, and text processing tasks.
 
-### Why Vim is Powerful and Versatile
-
-- **Modal editing** makes navigation and editing faster.
-- Very lightweight and starts instantly.
-- Fully configurable using **`.vimrc`**.
-- Rich plugin support (e.g., NERDTree, Telescope, Coc.nvim).
-- Works smoothly over SSH—ideal for remote servers.
-- Strong regex-based search and replace.
-- Easy integration with Git, Make, and shell tools.
-
-### Challenges of Using Vim
-
-- **Steep learning curve**.
-- Commands must be memorised.
-- Initial setup can be time-consuming.
-- Not intuitive for beginners.
-- Lacks modern IDE features by default.
-- Limited mouse support in terminal.
-- Plugin management requires manual effort.
-- Configuration may break across systems.
-
-
 ## Vim Installation
 
-#### Installation
-
-### Installing Vim and GVim
-
 - **Linux (Debian/Ubuntu)**:
-  - `sudo apt install vim`
-  - `sudo apt install gvim` (for GUI)
+  `sudo apt install vim`
+  `sudo apt install gvim` (for GUI)
 - **Linux (RedHat/Fedora)**:
-  - `sudo dnf install vim-enhanced`
-  - `sudo dnf install gvim`
+  `sudo dnf install vim-enhanced`
+  `sudo dnf install gvim`
 - **macOS (Homebrew)**:
-  - `brew install vim`
-  - `brew install macvim` (GVim alternative)
+  `brew install vim`
+  `brew install macvim` (GVim alternative)
 - **Windows**:
-  - Download installer from `https://www.vim.org`
-  - Or install via `choco install vim` (using Chocolatey)
-- **Optional**: Compile from source for latest features.
-
-### Checking Vim Installation
-
-- Open a terminal or command prompt.
-- Run: `vim --version`
-  - If Vim is installed, version info will appear.
-  - If not, you’ll see a “command not found” or similar error.
-- Optional: `which vim` (Unix/macOS) or `where vim` (Windows)
-- For GVim, try running `gvim` or check your application menu.
-
+  Download installer from `https://www.vim.org`
+  Or install via `choco install vim` (using Chocolatey)
+  
 ### Running Vim for first time
 
 ```
@@ -97,8 +46,6 @@ $gvim
 
 
 ## Basic Editing
-
-#### Basic Editing
 
 ### Modes
 
@@ -142,88 +89,70 @@ Found programming UNIX a hurdle
 
 - In Normal Mode, use:
 
-  - `h` – move left
-  - `j` – move down
-  - `k` – move up
-  - `l` – move right
+```
+        k
+        ↑
+        |
+h ← --- ● --- → l
+        |
+        ↓
+        j
+```
 
 - These keys are on the home row—fast and easy to reach.
-- **Avoid arrow keys**—they slow down.
-- Frequent hand movement to the arrows reduces efficiency.
 - Mnemonics:
   - `h` is left, `l` is right
   - `j` looks like a hook down
   - `k` points up
 
-### Undo and Redo
 
-- Press `u` to undo the last edit.
-- Press `u` repeatedly to keep undoing earlier changes.
-- Example:
+## Undo and Redo
 
-  - `xxxxxxx` deletes `A young`.
-  - Pressing `u` restores characters one by one:
-`g` → `ng` → `ung` → `young` → `A young`
+| Key / Command | Description |
+|--------------|-------------|
+| `u` | Undo last change |
+| `u` (repeat) | Continue undoing previous changes |
+| `CTRL + R` | Redo last undone change |
+| `U` | Undo all changes on current line |
+| `U` (again) | Redo changes undone by `U` |
 
-- Press `CTRL-R` to redo (reverse the last undo).
-- Use `U` (uppercase) to undo all changes on the current line.
-- Typing `U` again cancels its effect.
+## Saving and Exiting
 
-### Saving and Exiting
-
-| **Command** | **Description** |
-|---|---|
-| `:w` | Save file, stay in Vim |
+| Command | Description |
+|---------|-------------|
+| `:w` | Save file |
 | `:wq` | Save and quit |
-| `:wq!` | Force save and quit (e.g., read-only file) |
-| `:x` | Save and quit if changes were made |
-| `ZZ` | Save and quit (like `:wq`) |
+| `:wq!` | Force save and quit |
+| `:x` | Save and quit if modified |
+| `ZZ` | Save and quit |
 | `:q` | Quit (only if no changes) |
-| `:q!` | Quit and discard all changes |
+| `:q!` | Quit without saving |
 
-- Press `Esc` to leave Insert Mode and enter Normal Mode.
-- Type `:` to enter Command Mode (colon appears at bottom).
-- Type the appropriate command (see table below).
-- Press `Enter` to execute.
+## Insert and Append
 
-### Insert and Append Commands
+| Key | Description |
+|-----|-------------|
+| `i` | Insert before cursor |
+| `a` | Append after cursor |
+| `I` | Insert at start of line |
+| `A` | Append at end of line |
 
-**flexible ways to insert text:**
+## Opening New Lines
 
-- `i` – Insert **before** the current cursor position.
-- `a` – Append **after** the current cursor position.
-- `I` – Insert at the **beginning of the line**, no matter where the cursor is.
-- `A` – Append at the **end of the line**, regardless of cursor position.
+| Key | Description |
+|-----|-------------|
+| `o` | Open new line below and enter insert mode |
+| `O` | Open new line above and enter insert mode |
 
-- To insert "Hello" at the start of a line: `IHello<Esc>`
-- To append "!!!" at the end of a line: `A!!!<Esc>`
-- To insert right before a word: move cursor to the word, type `iText<Esc>`
-- To add after a word or character: move cursor, type `aText<Esc>`
+## Help System
 
-### Opening New Lines in Vim
-
-**Insert New Lines Quickly in Normal Mode**
-
-- `o` – Opens a new line **below** the current line and enters insert mode.
-  - Example: Place the cursor on a line and press `o`, type text, press `<Esc>`.
-
-- `O` – Opens a new line **above** the current line and enters insert mode.
-  - Useful when inserting comments or headers above code.
-
-- After typing the new line, press `<Esc>` to return to Normal mode.
-
-### Getting Help
-
-- Vim has a built-in help system.
-- To access it, In normal mode type: `:help` and press `Enter`.
-- Opens a new window with general help topics.
-- Use it to learn commands, options, and usage examples.
-- Navigate help with:
-  - `Ctrl-]` – follow a link
-  - `Ctrl-o` – go back
-  - `:q` – close help window
-- For specific topics: `:help <command>`
-- Example: `:help :wq` or `:help visual-mode`
+| Command / Key | Description |
+|---------------|-------------|
+| `:help` | Open help window |
+| `:help {topic}` | Search help for specific topic |
+| `Ctrl + ]` | Follow link in help |
+| `Ctrl + o` | Go back in help |
+| `:q` | Close help window |
 
 ![](images/help.png)
 
@@ -237,20 +166,6 @@ Found programming UNIX a hurdle
 
 **Exiting Help:**
 - To exit the help screen, use `ZZ` to save and quit, or `:q!` to quit without saving.
-
-### Summary: Basic Editing
-
-| **Feature** | **Description** |
-|---|---|
-| Modes | Normal, Insert, Visual – switch using keys like `i`, `Esc` |
-| Inserting/Deleting | Use `i` to insert, `x` to delete a character |
-| Navigation | Move with `h, j, k, l` instead of arrow keys |
-| Undo/Redo | `u` for undo, `CTRL-R` for redo, `U` for line undo |
-| Saving/Exiting | Commands like `:w`, `:q`, `:wq`, `:q!`, `ZZ` |
-| Insert/Append | Use `i`, `a`, `I`, `A` for different insertion points |
-| New Lines | `o` for line below, `O` for line above |
-| Help | `:help`, `<F1>`, navigate with `Ctrl-]`, `Ctrl-o`, `:q` |
-
 
 ## Fast Editing
 
@@ -880,26 +795,6 @@ Back and First/Last Navigation
 **Note:**
 - Indentation commands behave differently in block mode.
 - `shiftwidth` setting controls the amount of space used for indentation.
-
-
-## Conclusion
-
-#### Conclusion
-
-### Conclusion
-
-- Vim is a powerful and efficient text editor based on modes.
-- GVim enhances Vim with a graphical interface.
-- Great for developers, sysadmins, and power users.
-- Mastering Vim requires practice but pays off in productivity.
-
-**Questions?**
-
-**Thank You!**   
-
-Presented by: **Rukmi Chavda**   
-
-`rukmikchavda@gmail.com`   
 
 `https://github.com/RukmiChavda`   
 
