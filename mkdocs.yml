@@ -1,27 +1,100 @@
-site_name: Rukmi's VLSI Notes
+site_name: Rukmi's Notes
+site_url: https://rukmichavda.github.io/rukmi-notes/
+site_description: VLSI, EDA, and programming notes by Rukmi Chavda
+site_author: Rukmi Chavda
+
+repo_url: https://github.com/RukmiChavda/rukmi-notes
+repo_name: RukmiChavda/rukmi-notes
 
 theme:
   name: material
+  palette:
+    # Light mode
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    # Dark mode
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  font:
+    text: Inter
+    code: JetBrains Mono
+  features:
+    - navigation.tabs               # top-level nav becomes horizontal tabs
+    - navigation.tabs.sticky        # tabs stay visible on scroll
+    - navigation.sections           # group sidebar items under section headers
+    - navigation.expand             # auto-expand active section
+    - navigation.indexes            # section index pages (Overview per section)
+    - navigation.top                # back-to-top button
+    - navigation.footer             # prev/next page links at the bottom
+    - toc.follow                    # TOC highlights active heading on scroll
+    - search.highlight
+    - search.suggest
+    - content.code.copy             # copy button on code blocks
+    - content.code.annotate
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/extra.js
 
 nav:
   - Home: index.md
 
-  - Inputs:
+  - VLSI / EDA:
+    - Inputs:
       - Liberty File (.lib): inputs/lib.md
 
-  - VIM: vim/vim.md
-  - TCL: tcl/tcl.md
-  - Python: python/python.md
-  - Git: git/git.md 
-  - Markdown: markdown/markdown.md
-  - unix: 
+  - Programming:
+    - Python:
+      - Overview: python/python.md
+    - TCL:
+      - Overview: tcl/tcl.md
+    - Git:
+      - Overview: git/git.md
+    - VIM:
+      - Overview: vim/vim.md
+
+  - Tools:
+    - Markdown: markdown/markdown.md
+
+  - Unix:
     - Basic: unix/unix-basic.md
-    - Advance: unix/unix-adv.md
-    - AWK/GREP/SED: unix/awk-grep-sed.md
+    - Advanced: unix/unix-adv.md
+    - AWK / GREP / SED: unix/awk-grep-sed.md
 
 markdown_extensions:
+  - admonition
+  - pymdownx.details
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 3
+
+plugins:
+  - search
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/RukmiChavda
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/rukmichavda

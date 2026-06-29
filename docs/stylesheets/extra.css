@@ -1,0 +1,698 @@
+/* ============================================================
+   Rukmi's Notes — extra.css
+   Targets: MkDocs Material 9.x
+   ============================================================ */
+
+/* ── Google Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ================================================================
+   1. LAYOUT — wider content, tighter sidebars
+   ================================================================ */
+
+/* Push content area wider by shrinking sidebar rails */
+.md-sidebar--primary {
+  width: 220px;
+}
+
+.md-sidebar--secondary {
+  width: 180px;
+}
+
+/* Content column: take up the freed space */
+.md-content {
+  max-width: none;
+}
+
+/* The actual inner article — cap at 820px and centre it */
+.md-content__inner {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 2rem 2.5rem 3rem;
+}
+
+/* On wide screens give even more breathing room */
+@media screen and (min-width: 1440px) {
+  .md-sidebar--primary  { width: 240px; }
+  .md-sidebar--secondary{ width: 200px; }
+  .md-content__inner    { max-width: 900px; }
+}
+
+/* On smaller screens collapse secondary TOC earlier */
+@media screen and (max-width: 1219px) {
+  .md-sidebar--secondary { display: none; }
+}
+
+/* ================================================================
+   2. TYPOGRAPHY
+   ================================================================ */
+
+:root {
+  --md-text-font: "Inter", system-ui, -apple-system, sans-serif;
+  --md-code-font: "JetBrains Mono", "SF Mono", Consolas, monospace;
+  --md-typeset-a-color: var(--md-accent-fg-color);
+}
+
+/* Body text — slightly looser line height */
+.md-typeset {
+  font-size: 0.875rem;
+  line-height: 1.75;
+}
+
+/* H1 — page title */
+.md-typeset h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  margin-bottom: 0.25rem;
+}
+
+/* H2 — major sections, with a subtle rule */
+.md-typeset h2 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  margin-top: 2rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+/* H3 */
+.md-typeset h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+}
+
+/* ================================================================
+   3. HEADER / NAV TABS
+   ================================================================ */
+
+/* Header bar — slightly taller, cleaner */
+.md-header {
+  height: 52px;
+  box-shadow: none;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.md-header__inner {
+  height: 52px;
+}
+
+/* Site title — bold brand feel */
+.md-header__title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+
+/* Nav tabs — make them feel like buttons, not just text */
+.md-tabs__link {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  opacity: 0.75;
+  padding: 0 0.9rem;
+  border-radius: 6px;
+  transition: background 0.15s, opacity 0.15s;
+  margin: 6px 2px;
+}
+
+.md-tabs__link:hover {
+  opacity: 1;
+  background: rgba(128,128,128,0.1);
+}
+
+.md-tabs__link--active {
+  opacity: 1;
+  font-weight: 600;
+}
+
+.md-tabs {
+  background: inherit;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+/* ================================================================
+   4. LEFT SIDEBAR
+   ================================================================ */
+
+/* Section labels (VLSI, Programming, etc.) */
+.md-nav__title {
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  padding: 0.7rem 0.8rem 0.3rem;
+  color: var(--md-default-fg-color--light);
+}
+
+/* Nav items */
+.md-nav__item .md-nav__link {
+  font-size: 0.82rem;
+  padding: 0.38rem 0.8rem;
+  border-radius: 6px;
+  margin: 1px 6px;
+  transition: background 0.12s, color 0.12s;
+}
+
+.md-nav__item .md-nav__link:hover {
+  background: var(--md-default-fg-color--lightest);
+}
+
+/* Active nav item — accent left bar */
+.md-nav__item .md-nav__link--active {
+  font-weight: 600;
+  color: var(--md-accent-fg-color);
+  background: transparent;
+  position: relative;
+}
+
+.md-nav__item .md-nav__link--active::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 4px;
+  bottom: 4px;
+  width: 3px;
+  background: var(--md-accent-fg-color);
+  border-radius: 0 3px 3px 0;
+}
+
+/* Sub-items (nested nav) */
+.md-nav--secondary .md-nav__link,
+.md-nav__item--nested .md-nav .md-nav__link {
+  font-size: 0.78rem;
+  padding: 0.3rem 0.8rem 0.3rem 1.6rem;
+  color: var(--md-default-fg-color--light);
+}
+
+/* ================================================================
+   5. RIGHT TOC SIDEBAR
+   ================================================================ */
+
+.md-nav--secondary {
+  padding-top: 1rem;
+}
+
+.md-nav--secondary .md-nav__title {
+  font-size: 0.67rem;
+  letter-spacing: 0.1em;
+}
+
+.md-nav--secondary .md-nav__link {
+  font-size: 0.76rem;
+  padding: 0.28rem 0 0.28rem 0.7rem;
+  border-left: 2px solid transparent;
+  border-radius: 0;
+  margin: 0;
+  transition: border-color 0.12s, color 0.12s;
+}
+
+.md-nav--secondary .md-nav__link:hover {
+  border-left-color: var(--md-default-fg-color--lighter);
+  background: transparent;
+}
+
+.md-nav--secondary .md-nav__link--active {
+  border-left-color: var(--md-accent-fg-color);
+  color: var(--md-accent-fg-color);
+  background: transparent;
+}
+
+.md-nav--secondary .md-nav__link--active::before {
+  display: none;  /* no double indicator on TOC */
+}
+
+/* ================================================================
+   6. CODE BLOCKS
+   ================================================================ */
+
+/* Inline code */
+.md-typeset code {
+  font-size: 0.82em;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+/* Fenced code blocks */
+.md-typeset pre {
+  border-radius: 8px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  margin: 1rem 0;
+}
+
+.md-typeset pre > code {
+  font-size: 0.81rem;
+  line-height: 1.65;
+  padding: 1rem 1.1rem;
+}
+
+/* Code block title bar */
+.md-typeset .highlight .filename {
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 8px 8px 0 0;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+/* Copy button */
+.md-typeset .md-clipboard {
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+/* ================================================================
+   7. TABLES
+   ================================================================ */
+
+.md-typeset table:not([class]) {
+  font-size: 0.82rem;
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  margin: 1rem 0;
+}
+
+.md-typeset table:not([class]) th {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.6rem 1rem;
+  background: var(--md-default-fg-color--lightest);
+}
+
+.md-typeset table:not([class]) td {
+  padding: 0.55rem 1rem;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+  vertical-align: top;
+}
+
+/* ================================================================
+   8. ADMONITIONS (note / tip / warning boxes)
+   ================================================================ */
+
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 8px;
+  border-width: 1px;
+  font-size: 0.83rem;
+  margin: 1.25rem 0;
+}
+
+/* ================================================================
+   9. FOOTER
+   ================================================================ */
+
+.md-footer {
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.md-footer-meta {
+  font-size: 0.75rem;
+}
+
+/* ================================================================
+   10. DARK MODE OVERRIDES
+   ================================================================ */
+
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color:        #141413;
+  --md-default-bg-color--light: #1e1e1c;
+  --md-default-fg-color:        #e8e7e2;
+  --md-default-fg-color--light: #8a8a82;
+  --md-default-fg-color--lighter: #555550;
+  --md-default-fg-color--lightest: #2e2e2b;
+  --md-code-bg-color:           #181816;
+  --md-code-fg-color:           #d4d4c8;
+
+  /* ── Icon colours — dark mode ── */
+  --md-typeset-color:           #e8e7e2;
+
+  /* All SVG icons white/bright in dark mode */
+  --icon-fg:                    #e8e7e2;
+}
+
+/* Header icons — dark mode */
+[data-md-color-scheme="slate"] .md-header__button.md-icon,
+[data-md-color-scheme="slate"] .md-header__button.md-icon svg {
+  color: #e8e7e2;
+  fill:  #e8e7e2;
+}
+
+/* Dark/light toggle button icon — make sure always visible */
+[data-md-color-scheme="slate"] .md-header__button[data-md-toggle] svg,
+[data-md-color-scheme="slate"] .md-header__button[data-md-component="palette"] svg {
+  color: #e8e7e2;
+  fill:  #e8e7e2;
+  opacity: 1;
+}
+
+/* Search icon — dark mode */
+[data-md-color-scheme="slate"] .md-search__icon svg,
+[data-md-color-scheme="slate"] .md-search__icon.md-icon svg {
+  color: #e8e7e2;
+  fill:  #e8e7e2;
+}
+
+/* Nav expand/collapse chevron arrows — dark mode */
+[data-md-color-scheme="slate"] .md-nav__icon svg,
+[data-md-color-scheme="slate"] .md-nav__button svg {
+  color: #8a8a82;
+  fill:  #8a8a82;
+}
+
+/* Repo icon (GitHub) in header — dark mode */
+[data-md-color-scheme="slate"] .md-source__icon svg {
+  color: #e8e7e2;
+  fill:  #e8e7e2;
+}
+
+/* Footer social icons — dark mode */
+[data-md-color-scheme="slate"] .md-social__link svg {
+  color: #8a8a82;
+  fill:  #8a8a82;
+}
+[data-md-color-scheme="slate"] .md-social__link:hover svg {
+  color: #e8e7e2;
+  fill:  #e8e7e2;
+}
+
+/* TOC / content anchor permalink icons — dark mode */
+[data-md-color-scheme="slate"] .md-typeset .headerlink svg,
+[data-md-color-scheme="slate"] .md-typeset .headerlink {
+  color: #555550;
+}
+[data-md-color-scheme="slate"] .md-typeset .headerlink:hover {
+  color: #e8e7e2;
+}
+
+/* Code copy button — dark mode */
+[data-md-color-scheme="slate"] .md-clipboard svg {
+  color: #8a8a82;
+  fill:  #8a8a82;
+}
+[data-md-color-scheme="slate"] .md-clipboard:hover svg {
+  color: #e8e7e2;
+  fill:  #e8e7e2;
+}
+
+/* Admonition icons — dark mode */
+[data-md-color-scheme="slate"] .md-typeset .admonition > .admonition-title::before,
+[data-md-color-scheme="slate"] .md-typeset details > summary::before {
+  opacity: 1;
+}
+
+[data-md-color-scheme="slate"] .md-header {
+  background: #1e1e1c;
+  border-bottom-color: #2e2e2b;
+}
+
+[data-md-color-scheme="slate"] .md-tabs {
+  background: #1e1e1c;
+  border-bottom-color: #2e2e2b;
+}
+
+[data-md-color-scheme="slate"] .md-sidebar__scrollwrap {
+  background: #181816;
+}
+
+[data-md-color-scheme="slate"] .md-typeset pre {
+  border-color: #2e2e2b;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h2 {
+  border-bottom-color: #2e2e2b;
+}
+
+/* ================================================================
+   11. LIGHT MODE — warm off-white base
+   ================================================================ */
+
+[data-md-color-scheme="default"] {
+  --md-default-bg-color:           #f7f6f3;
+  --md-default-bg-color--light:    #ffffff;
+  --md-default-fg-color:           #1a1a18;
+  --md-default-fg-color--light:    #4a4a45;
+  --md-default-fg-color--lighter:  #7a7a75;
+  --md-default-fg-color--lightest: #e0dfd9;
+  --md-code-bg-color:              #f0efe9;
+  --md-code-fg-color:              #1a1a18;
+  --md-typeset-color:              #1a1a18;
+  --md-typeset-a-color:            #4f6ef7;
+}
+
+/* Header — white bar, dark text */
+[data-md-color-scheme="default"] .md-header {
+  background: #ffffff;
+  color: #1a1a18;
+}
+
+[data-md-color-scheme="default"] .md-header__title {
+  color: #1a1a18;
+}
+
+/* Tabs bar — white bg, clearly dark text */
+[data-md-color-scheme="default"] .md-tabs {
+  background: #ffffff;
+  border-bottom: 1px solid #e0dfd9;
+}
+
+[data-md-color-scheme="default"] .md-tabs__link {
+  color: #4a4a45 !important;
+  opacity: 1 !important;
+}
+
+[data-md-color-scheme="default"] .md-tabs__link:hover {
+  color: #1a1a18 !important;
+}
+
+[data-md-color-scheme="default"] .md-tabs__link--active {
+  color: #1a1a18 !important;
+  font-weight: 600;
+}
+
+/* Sidebar background and text */
+[data-md-color-scheme="default"] .md-sidebar {
+  background: #fafaf7;
+}
+
+[data-md-color-scheme="default"] .md-sidebar__scrollwrap {
+  background: #fafaf7;
+}
+
+/* Nav section labels */
+[data-md-color-scheme="default"] .md-nav__title {
+  color: #7a7a75;
+}
+
+/* Nav links — dark, readable */
+[data-md-color-scheme="default"] .md-nav__link {
+  color: #4a4a45 !important;
+}
+
+[data-md-color-scheme="default"] .md-nav__link:hover {
+  color: #1a1a18 !important;
+  background: #eeede7;
+}
+
+[data-md-color-scheme="default"] .md-nav__link--active {
+  color: #4f6ef7 !important;
+  font-weight: 600;
+}
+
+/* Body text */
+[data-md-color-scheme="default"] .md-typeset {
+  color: #1a1a18;
+}
+
+[data-md-color-scheme="default"] .md-typeset p,
+[data-md-color-scheme="default"] .md-typeset li,
+[data-md-color-scheme="default"] .md-typeset td,
+[data-md-color-scheme="default"] .md-typeset th {
+  color: #1a1a18;
+}
+
+[data-md-color-scheme="default"] .md-typeset h1,
+[data-md-color-scheme="default"] .md-typeset h2,
+[data-md-color-scheme="default"] .md-typeset h3,
+[data-md-color-scheme="default"] .md-typeset h4 {
+  color: #0f0f0e;
+}
+
+/* Inline code */
+[data-md-color-scheme="default"] .md-typeset code {
+  background: #eeede7;
+  color: #1a1a18;
+}
+
+/* Code blocks */
+[data-md-color-scheme="default"] .md-typeset pre {
+  background: #f0efe9;
+  border-color: #e0dfd9;
+}
+
+[data-md-color-scheme="default"] .md-typeset pre code {
+  color: #1a1a18;
+}
+
+/* Search bar */
+[data-md-color-scheme="default"] .md-search__input {
+  background: #f0efe9;
+  color: #1a1a18;
+}
+
+[data-md-color-scheme="default"] .md-search__input::placeholder {
+  color: #7a7a75;
+}
+
+/* Header icons — dark so they show on white */
+[data-md-color-scheme="default"] .md-header__button.md-icon,
+[data-md-color-scheme="default"] .md-header__button.md-icon svg {
+  color: #1a1a18;
+  fill:  #1a1a18;
+}
+
+/* Toggle icon — light mode */
+[data-md-color-scheme="default"] .md-header__button[data-md-component="palette"] svg {
+  color: #1a1a18 !important;
+  fill:  #1a1a18 !important;
+  opacity: 1;
+}
+
+/* Search icon — light mode */
+[data-md-color-scheme="default"] .md-search__icon svg {
+  color: #1a1a18;
+  fill:  #1a1a18;
+}
+
+/* Nav chevrons — light mode */
+[data-md-color-scheme="default"] .md-nav__icon svg {
+  color: #5a5a55;
+  fill:  #5a5a55;
+}
+
+/* Repo icon — light mode */
+[data-md-color-scheme="default"] .md-source__icon svg {
+  color: #1a1a18;
+  fill:  #1a1a18;
+}
+
+/* Source (repo) name */
+[data-md-color-scheme="default"] .md-source__repository {
+  color: #1a1a18;
+}
+
+/* Footer social icons — light mode */
+[data-md-color-scheme="default"] .md-social__link svg {
+  color: #5a5a55;
+  fill:  #5a5a55;
+}
+[data-md-color-scheme="default"] .md-social__link:hover svg {
+  color: #1a1a18;
+  fill:  #1a1a18;
+}
+
+/* TOC anchor links — light mode */
+[data-md-color-scheme="default"] .md-typeset .headerlink {
+  color: #9a9993;
+}
+[data-md-color-scheme="default"] .md-typeset .headerlink:hover {
+  color: #1a1a18;
+}
+
+/* Code copy button — light mode */
+[data-md-color-scheme="default"] .md-clipboard svg {
+  color: #5a5a55;
+  fill:  #5a5a55;
+}
+[data-md-color-scheme="default"] .md-clipboard:hover svg {
+  color: #1a1a18;
+  fill:  #1a1a18;
+}
+
+/* ── Global: ensure no SVG icon ever goes fully invisible ── */
+.md-icon svg {
+  opacity: 1 !important;
+}
+
+/* ================================================================
+   14. DARK/LIGHT TOGGLE — pinned to top-right corner
+   ================================================================ */
+
+/* Pull the palette button out of normal header flow */
+.md-header__button[data-md-component="palette"] {
+  opacity: 1 !important;
+  position: fixed !important;
+  top: 10px !important;
+  right: 14px !important;
+  z-index: 9999 !important;
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: var(--md-default-bg-color--light) !important;
+  border: 1px solid var(--md-default-fg-color--lightest) !important;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.10) !important;
+  transition: box-shadow 0.15s, background 0.15s !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.md-header__button[data-md-component="palette"]:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18) !important;
+}
+
+.md-header__button[data-md-component="palette"] svg {
+  opacity: 1 !important;
+  display: block !important;
+  width: 18px !important;
+  height: 18px !important;
+}
+
+/* Dark mode — pill background adapts */
+[data-md-color-scheme="slate"] .md-header__button[data-md-component="palette"] {
+  background: #252523 !important;
+  border-color: #3a3a37 !important;
+}
+
+[data-md-color-scheme="slate"] .md-header__button[data-md-component="palette"] svg {
+  color: #e8e7e2 !important;
+  fill:  #e8e7e2 !important;
+}
+
+/* Light mode — pill background */
+[data-md-color-scheme="default"] .md-header__button[data-md-component="palette"] {
+  background: #ffffff !important;
+  border-color: #e0dfd9 !important;
+}
+
+[data-md-color-scheme="default"] .md-header__button[data-md-component="palette"] svg {
+  color: #1a1a18 !important;
+  fill:  #1a1a18 !important;
+}
+
+/* ================================================================
+   12. SEARCH BOX
+   ================================================================ */
+
+.md-search__input {
+  font-size: 0.82rem;
+  border-radius: 6px;
+}
+
+/* ================================================================
+   13. MOBILE TWEAKS
+   ================================================================ */
+
+@media screen and (max-width: 76.1875em) {
+  .md-content__inner {
+    padding: 1.5rem 1.25rem 2.5rem;
+  }
+}
