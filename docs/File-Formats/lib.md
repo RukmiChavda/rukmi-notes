@@ -8,6 +8,12 @@ Liberty files are developed by the foundry or library vendor and are one of the 
 
 ---
 
+![INVERTER](./images/liberty/INV.png)
+<p align="center">
+  <em>"<code>.lib</code> is the DNA of your standard cells."</em>
+</p>
+
+
 ## Why Liberty Files Are Important
 
 Liberty files provide:
@@ -26,33 +32,58 @@ Tools such as Fusion Compiler, PrimeTime, Design Compiler, OpenROAD, and Yosys u
 
 ## Liberty File in ASIC Flow
 
-```mermaid
-flowchart LR
-    RTL --> Synthesis --> PnR --> CTS --> Signoff
-```
+The .lib file is the primary source of timing and power data for multiple EDA stages; without it, synthesis,
+STA, PnR, and power analysis cannot be accurate.
 
-![CTS tree](./images/liberty/inv_dia.png)
-<figure markdown> <figcaption>Inverter diagram</figcaption> </figure>
-![CTS tree](./images/liberty/inv_scm.png)
-<figure markdown> <figcaption>Inverter shemeatic</figcaption> </figure>
-![CTS tree](./images/liberty/inv_lay.png)
-<figure markdown> <figcaption>Inverter Layout</figcaption> </figure>
+![LIB FILE AATE DIFFERENT STAGES](./images/liberty/LIB_USAGE.png)
+
 
 ## Basic Structure
 
 A Liberty file typically contains:
 
-```text
-library
-├── Operating Conditions
-├── Wire Load Models
-├── Cell Definitions
-│   ├── Pins
-│   ├── Timing Arcs
-│   ├── Power Data
-│   └── Area
-└── Constraints
+- A library description defines the properties, technology parameters, and contents of a standard cell library.
+- General Syntax:
+    - First statement — library(name): names the library.
+    - Followed by library-level attributes: technology type, units, delay models, routing layers, etc.
+    - Cell descriptions: Each cell has its own definition block.
+- Statements define:
+    - Units (time, voltage, current)
+    - Delay models
+    - Wire load models
+    - Power lookup tables
+    - Cell-level properties and scaling options
+
+![LIB STRECTURE 01](./images/liberty/lib_str_1.png)
+
 ```
+library (name) {
+    technology (name);
+    delay_model : generic_cmos | table_lookup | cmos2 | ... ;
+    bus_naming_style : string;
+    routing_layers(string);
+    time_unit : unit;
+    voltage_unit : unit;
+    current_unit : unit;
+    capacitive_load_unit(value,unit);
+    leakage_power_unit : unit;
+
+    operating_conditions (name) { ... }
+    timing_range (name) { ... }
+    wire_load (name) { ... }
+    wire_load_selection() { ... }
+    power_lut_template (name) { ... }
+
+    cell (name1) { ... }
+    cell (name2) { ... }
+
+    type (name) { ... }
+    input_voltage (name) { ... }
+    output_voltage (name) { ... }
+}
+```
+![LIB STRECTURE 02](./images/liberty/lib_str.png)
+
 
 ## Key Library Attributes
 
@@ -151,27 +182,6 @@ Example:
 ```liberty
 cell_leakage_power : 0.003;
 ```
-
-## Common Standard Cells
-
-- Buffer
-- Inverter
-- NAND
-- NOR
-- AOI
-- OAI
-- Multiplexer
-- Flip-Flop
-- Latch
-- Clock Gating Cell
-
-## Library Corners
-
-| Corner | Process | Voltage | Temperature |
-|----------|----------|----------|-------------|
-| TT | Typical | Nominal | 25°C |
-| SS | Slow | Low | High |
-| FF | Fast | High | Low |
 
 ## Important Sections in a Liberty File
 

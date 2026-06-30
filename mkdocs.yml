@@ -45,27 +45,23 @@ extra_javascript:
 nav:
   - Home: index.md
 
-  - VLSI / EDA:
-    - Inputs:
-      - Liberty File (.lib): inputs/lib.md
+  - Physical Design:
+    - Floorplan: Physical-Design/floorplan.md
+
+  - File Formats:
+    - Liberty File (.lib): File-Formats/lib.md
 
   - Programming:
-    - Python:
-      - Overview: python/python.md
-    - TCL:
-      - Overview: tcl/tcl.md
-    - Git:
-      - Overview: git/git.md
-    - VIM:
-      - Overview: vim/vim.md
+    - Python: Programming/python.md
+    - TCL: Programming/tcl.md
+    - Markdown: Programming/markdown.md
 
   - Tools:
-    - Markdown: markdown/markdown.md
-
-  - Unix:
-    - Basic: unix/unix-basic.md
-    - Advanced: unix/unix-adv.md
-    - AWK / GREP / SED: unix/awk-grep-sed.md
+    - Basic: Tools/unix-basic.md
+    - Advanced: Tools/unix-adv.md4
+    - AWK / GREP / SED: Tools/awk-grep-sed.md
+    - Git: Tools/git.md
+    - VIM: Tools/vim.md
 
 markdown_extensions:
   - admonition
