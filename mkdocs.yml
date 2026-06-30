@@ -47,6 +47,7 @@ nav:
 
   - Physical Design:
     - Floorplan: Physical-Design/floorplan.md
+    - Placement: Physical-Design/place.md
 
   - File Formats:
     - Liberty File (.lib): File-Formats/lib.md
