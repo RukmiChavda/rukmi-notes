@@ -8,7 +8,7 @@ Liberty files are developed by the foundry or library vendor and are one of the 
 
 ---
 
-![INVERTER](./images/liberty/INV.png)
+![INVERTER](./Images/INV.png)
 <p align="center">
   <em>"<code>.lib</code> is the DNA of your standard cells."</em>
 </p>
@@ -35,7 +35,7 @@ Tools such as Fusion Compiler, PrimeTime, Design Compiler, OpenROAD, and Yosys u
 The .lib file is the primary source of timing and power data for multiple EDA stages; without it, synthesis,
 STA, PnR, and power analysis cannot be accurate.
 
-![LIB FILE AATE DIFFERENT STAGES](./images/liberty/LIB_USAGE.png)
+![LIB FILE AATE DIFFERENT STAGES](./Images/LIB_USAGE.png)
 
 
 ## Basic Structure
@@ -54,7 +54,7 @@ A Liberty file typically contains:
     - Power lookup tables
     - Cell-level properties and scaling options
 
-![LIB STRECTURE 01](./images/liberty/lib_str_1.png)
+![LIB STRECTURE 01](./Images/lib_str_1.png)
 
 ```
 library (name) {
@@ -82,7 +82,7 @@ library (name) {
     output_voltage (name) { ... }
 }
 ```
-![LIB STRECTURE 02](./images/liberty/lib_str.png)
+![LIB STRECTURE 02](./Images/lib_str.png)
 
 
 ## Key Library Attributes
